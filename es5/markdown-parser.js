@@ -17,10 +17,9 @@ exports.default = function (src) {
   if (jekyllFrontMatter) {
     tracker.replaceAll(jekyllFrontMatter, " ");
   }
-
   tracker.removeAll(/\[.*?\]/); // remove content in square bracket []
  // tracker.removeAll(/[a-zA-Z]+(_[a-zA-Z]*)+/);  remove snake_case words
-
+  tracker.removeAll(/\(#.+?\)/) // remove internal links
   tracker.removeAll(/```[\w\W]*?```/);
   tracker.removeAll(/~~~[\w\W]*?~~~/);
   tracker.removeAll(/``[\w\W]*?``/);
